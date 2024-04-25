@@ -1,0 +1,8 @@
+body{
+    background: rgb(255, 255, 255); /* Verde claro con saturación media y luminosidad alta */
+}
+
+.bg-black{
+    background: #101010 ;
+}
+
