@@ -1,0 +1,65 @@
+{% extends 'layout.html' %}
+{% load static %}
+{% block content%}
+
+<header class="row">
+    <div class="col-md-4">
+        <img src="{% static 'portfolio/Captura.PNG' %}" alt="" style="max-width: 100%; height: auto;">
+    </div>
+    <div class="col-md-8 my-auto">
+        <h1>
+            <strong> DAVID STEVEN MARQUEZ GIL</strong>
+        </h1>
+        <h3>
+            Mechatronic Engineer | RPA Developer | Python | SQL | Automation Anywhere 360 | Power Automate Desktop | Power Apps | Agile methodologies | Excel | Bilingüe
+        </h3>
+        <p>
+            This is my portfolio where I showcase who I am on the homepage and highlight my successful projects on the blog page.
+        </p>
+        <p> 
+            I am a Mechatronics Engineer and RPA Developer with a passion for intelligent automation and technological innovation. My objective is to support personal and professional growth, reflecting the culture of companies.
+
+            Currently, I work as an RDC Automation Jr Developer at TMF Group, where I participate in the implementation of RPA solutions in various business areas. Previously, I worked as a Robotic Process Automation Developer at NET APPLICATIONS S.A.S, where I led the design and implementation of RPA solutions in medical companies, achieving optimization of 5 bots and streamlining 3 existing processes. Additionally, I collaborated in the development of internal bots to improve the company's automation strategy.
+            
+            My skills include programming in Python, SQL, C++, PLC, and microcontrollers, as well as the use of tools such as Automation Anywhere 360, Power Automate, and Power Apps. I also have competencies in agile methodologies, Excel, and effective communication. I am bilingual with a B2 level of English, certified by Berlitz Eje Cafetero. I consider myself a proactive, collaborative professional focused on project quality. 
+        </p> 
+        <a href="{% static 'portfolio/CV-David Marquez.pdf'%}" class="btn btn-primary btn-lg rounded-0 my-3">Download CV</a>           
+    </div>
+</header>
+
+<div style="text-align: center; margin-top: 20px;">
+    <h1 style="font-style: italic; text-decoration: underline;">
+        <strong>To see my projects go to blog section</strong>
+    </h1>
+</div>
+<div class="row my-4 text-center">
+
+    <h3>¡ABOUT MY LEARNIGN PATH!</h3>
+    <p>
+        Exciting Announcement! about my learning path, All of these courses were completed through self-learning, with support from <strong>Udemy</strong>
+    </p>
+
+{% for project in projects %}
+
+<div class="col-md-4 p-4" >
+    <div class="card bg-black" style="background-color: hsl(220, 74%, 21%); color: white;">
+        <img src="{{project.image.url}}" alt="{{project.title}}" class="card-img-top"/>
+        <div class="card-body">
+            
+
+        <h2>{{project.title}}</h2>
+        <p>{{project.description}}</p>
+        
+
+            {% if project.url %}
+            <a href="{{project.url}}" class="btn btn-light rounded-0 btn-sm" target="_blank">{{project.url}}</a>
+            {% endif %}
+
+        </div>
+    </div>
+</div>
+    
+
+{% endfor %}
+{% endblock %}
+</div>

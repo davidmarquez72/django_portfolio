@@ -1,0 +1,29 @@
+{% extends 'layout.html' %}
+{% load static %}
+{% block content %}
+<h1>My projects</h1>
+<div style="display: flex; justify-content: space-between; align-items: center;">
+    <h2 style="text-align: left;">If you want a summary of all my projects, download my <em>portafolio.xlsx</em>.</h2>
+    <a href="{% static 'portfolio/portafolio.xlsx'%}" class="btn btn-primary btn-lg rounded-0 my-3">Download Portfolio</a>
+</div>
+{% for post in posts %}
+
+<div class="p-3">
+    <div class="card card-body bg-black">
+        <div class="row">
+            <div class="col-3">
+                <img src="{{post.image.url}}" alt="{{post.title}}" class="img-fluid">
+            </div>
+            <div class="col-9">
+                <h2>{{post.title}}</h2>
+                <p>{{post.description|striptags|truncatechars:100}}</p>
+                <P>{{post.date|date:'M d Y'|upper}}</P>
+                 
+                <a href="{% url 'blog:post_detail' post.id %}" class="btn btn-primary">{{post.title}}</a>
+            </div>
+        </div>    
+    </div>
+</div>
+{% endfor %}
+
+{% endblock %}
